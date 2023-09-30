@@ -26,7 +26,7 @@ class CmdSnooper extends PluginBase {
 	 public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{			
 		if(strtolower($cmd->getName()) == "snoop") {
 		 	if($sender instanceof Player) {
-				if($sender->hasPermission("snoop.command")) {
+				if($sender->hasPermission("cmdsnooper.command")) {
 					if(!isset($this->snoopers[$sender->getName()])) {
 						$sender->sendMessage("§f§l[§cSpy§f]§r§a Spy mode is enabled");
 						$this->snoopers[$sender->getName()] = $sender;
