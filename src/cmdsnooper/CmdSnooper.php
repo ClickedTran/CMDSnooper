@@ -8,6 +8,8 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
+use cmdsnooper\EventListener;
+
 class CmdSnooper extends PluginBase {
 	public $snoopers = [];
 	public $setting;
