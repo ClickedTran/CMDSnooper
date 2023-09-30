@@ -8,8 +8,8 @@ description: Watch players use commands
 commands:
   snoop:
     description: Enter snoop mode
-    permission: snoop.command
+    permission: cmdsnooper.command
 permissions:
-   snoop.command:
+   cmdsnooper.command:
     default: op
  
