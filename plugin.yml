@@ -1,0 +1,15 @@
+name: CMDSnooper
+main: cmdsnooper\CmdSnooper
+version: 1.0.0
+api: 5.0.0
+author: ClickedTran
+description: Watch players use commands
+
+commands:
+  snoop:
+    description: Enter snoop mode
+    permission: snoop.command
+permissions:
+   snoop.command:
+    default: op
+ 
