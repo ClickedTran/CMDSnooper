@@ -8,7 +8,16 @@ use cmdsnooper\CmdSnooper;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
-class EventListener implements Listener {	
+class EventListener implements Listener {
+	public CmdSnooper $plugin;
+
+	public function __construct(CmdSnooper $plugin){
+		$this->plugin = $plugin;
+	}
+
+	public function getPlugin(){
+		return $this->plugin;
+	}
 	public function onCmnd(CommandEvent $event): void{
 	  $sender = $event->getSender();
 		$msg = $event->getCommand();
