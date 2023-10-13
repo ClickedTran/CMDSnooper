@@ -6,10 +6,11 @@ use pocketmine\event\Listener;
 use pocketmine\event\server\CommandEvent;
 use ClickedTran\CMDSnooper\CMDSnooper;
 use pocketmine\player\Player;
+use pocketmine\Server;
 
 class EventListener implements Listener {
 	public $plugin;
-	public function __construct(CmdSnooper $plugin) {
+	public function __construct(CMDSnooper $plugin) {
 		$this->plugin = $plugin;
 	}
 
@@ -17,24 +18,24 @@ class EventListener implements Listener {
 		return $this->plugin;
 	}
 	
-	public function onCmnd(CommandEvent $event): void{
+	public function onCMD(CommandEvent $event): void{
 	  $sender = $event->getSender();
 		$msg = $event->getCommand();
 		if($this->getPlugin()->setting->get("Console.Logger") == "true") {
 		  if($sender instanceof Player){
 		   if($msg[0] == "login" or $msg[0] == "log" or $msg[0] == "register" or $msg[0] == "reg"){
-		     $this->getPlugin()->getLogger()->info($sender->getName() . "§a Covered for security reasons!");
+		     Server::getInstance()->getLogger()->info($sender->getName() . "§a Covered for security reasons!");
 		     return;
 		   }
-		   $this->getPlugin()->getLogger()->info("§f§l[§cSpy§f]§r§a ". $sender->getName() . " §e➼§a /" . $msg);
+		   Server::getInstance()->getLogger()->info("§f§l[§cSpy§f]§r§a ". $sender->getName() . " §e➼§a /" . $msg);
 		   }
 	  	}
 			
 			if(!empty($this->getPlugin()->snoopers)) {
 				foreach($this->getPlugin()->snoopers as $snooper) {
 			    if($sender instanceof Player){
-			      if($msg[0] == "login" or $msg[0] == "log" or $msg[0] == "register" or $msg[0] == "reg"){
-		           $this->getPlugin()->getLogger()->info($sender->getName() . "§a Covered for security reasons!");
+			      if($msg == "login" or $msg == "log" or $msg == "register" or $msg == "reg"){
+		           Server::getInstance()->getLogger()->info($sender->getName() . "§a Covered for security reasons!");
 		           return;
 		         }
 						 $snooper->sendMessage("§f§l[§cSpy§f]§r§a " . $sender->getName() . " §e➼§a /" . $msg);
