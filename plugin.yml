@@ -1,5 +1,5 @@
 name: CMDSnooper
-main: cmdsnooper\CmdSnooper
+main: ClickedTran\CMDSnooper\CMDSnooper
 version: 1.0.0
 api: 5.0.0
 author: ClickedTran
