@@ -1,15 +1,11 @@
 <?php
-
+declare(strict_types=1);
 namespace ClickedTran\CMDSnooper;
 
 use pocketmine\event\Listener;
 use pocketmine\event\server\CommandEvent;
 use ClickedTran\CMDSnooper\CMDSnooper;
 use pocketmine\player\Player;
-
-use CortexPE\DiscordWebhookAPI\Message;
-use CortexPE\DiscordWebhookAPI\Webhook;
-use CortexPE\DiscordWebhookAPI\Embed;
 
 class EventListener implements Listener {
 	public $plugin;
